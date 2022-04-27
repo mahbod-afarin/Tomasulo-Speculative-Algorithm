@@ -1,0 +1,4 @@
+Ld R2, 0(R1) 
+Add R2, R2,1 
+Sd R2, 0(R1) 
+Bne R2, R3,-2
