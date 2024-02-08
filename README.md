@@ -1,3 +1,6 @@
+Tomasulo Speculative Algorithm Implementation
+===============================================================
+
 Introduction
 
 In this project, I implemented Tomasulo Speculative algorithm with C++. This
