@@ -1,7 +1,7 @@
 Tomasulo Speculative Algorithm Implementation
 ===============================================================
 
-Introduction
+## Introduction
 
 In this project, I implemented Tomasulo Speculative algorithm with C++. This
 simulator takes assembly instructions in a text file and then it decoded the
