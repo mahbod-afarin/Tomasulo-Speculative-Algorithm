@@ -28,3 +28,16 @@ Speculative Tomasulo utilizes the Re-order Buffer (ROB) to issue instructions fo
 
 The addition of the commit stage enables the completion of instructions in order, thereby allowing the execution of instructions after the branch in speculative Tomasulo. As illustrated in Table 1, the primary difference between simple Tomasulo and speculative Tomasulo lies in their completion strategy: simple Tomasulo completes instructions out-of-order, while speculative Tomasulo completes instructions in-order. In this project, I implemented the speculative Tomasulo algorithm.
 </div>
+
+## Implementation of the speculative Tomasulo
+
+<div align="justify">
+Speculative Tomasulo consists of 5 main stages. These five stages are issue, execution, memory, write-back, and commit. In the issue stage, the simulator fetches the instructions from the instruction queue and then puts the instructions into the reservation stations. In the execution stage, the simulator retrieves the instructions from the reservation stations and then executes them. The memory stage is used only for load and store instructions. If we have a load instruction, the simulator loads the data from memory and then broadcasts the data using the common data bus. For the store instruction, it writes the result in the ROB (Reorder Buffer), and when the instruction has committed, it stores the data in the memory. In the write-back stage, the simulator writes the results into the ROB and also broadcasts the results for other instructions. In the commit stage, the simulator writes the results to the memory and register files, and then it deletes the instructions from the reservation stations.
+
+For branch instructions, the simulator assumes that the branch is taken, and then it issues the instruction which is the destination of the branch. If the prediction is wrong, it flushes the incorrect instructions and then proceeds to issue the normal instructions after the branch instruction. The simulator has 16 integer registers and 16 floating-point registers.
+
+This simulator takes two inputs: the first input is the assembly input instructions, and the second is the configuration text file for the speculative Tomasulo architecture. The instruction set of the simulator is detailed in Table 2.
+
+The speculative Tomasulo simulator stores the results of the simulation in the output text file. The output format resembles the table format used in our course lectures. It includes the register file values and the memory values after executing the simulator. In the next section, we will examine a sample output of the simulator.
+</div>
+
